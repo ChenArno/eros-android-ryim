@@ -113,7 +113,7 @@ public class VanzImView extends WXVContainer<WXFrameLayout> implements RongIMCli
     @JSMethod
     public void deleteItem(Conversation.ConversationType conversationType,String targetId,JSCallback success){
         Boolean suc = RongIMClient.getInstance().removeConversation(conversationType,targetId);
-        if(suc){
+        if(success){
             success.invoke("true");
         }else{
             success.invoke("false");
