@@ -17,7 +17,7 @@ Step 2. Add the dependency
 
 ```Java
 dependencies {
-	  compile 'com.github.ChenArno:eros-android-ryim:-SNAPSHOT'
+	  compile 'com.github.ChenArno:eros-android-ryim:1.0.0'
 	}
 ```
 引用插件，构造完毕以后，
