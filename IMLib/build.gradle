@@ -31,7 +31,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             manifestPlaceholders = [
-                    RONGYUN_APPID    : RONGYUN_APPID_DEBUG
+                    RONGYUN_APPID    : RONGYUN_APPID
             ]
         }
     }
