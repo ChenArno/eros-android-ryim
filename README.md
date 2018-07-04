@@ -17,7 +17,7 @@ Step 2. Add the dependency
 
 ```Java
 dependencies {
-	  compile 'com.github.ChenArno:eros-android-ryim:1.0.0'
+	  compile 'com.github.ChenArno:eros-android-ryim:1.0.1'
 	}
 ```
 引用插件，构造完毕以后，
@@ -84,3 +84,34 @@ this.$refs.imview.deleteItem(type,userId,res=>{
   console.log(res)
 })
 ```
+监听聊天页面返回动作
+此处可执行刷新动作this.$refs.imview.selectList
+```Js
+    globalEvent.addEventListener('activity.back', options => {
+      //do soming
+      //监听会话页面返回
+    })
+```
+监听收到消息动作
+此处可执行刷新动作this.$refs.imview.selectList
+```Js
+    globalEvent.addEventListener('ryMsg.received', options => {
+      let { sentTime, content, targetId } = options
+      this.selectList()
+      //do soming
+      //监听收到消息
+    })
+```
+监听发送消息动作
+```Js
+    globalEvent.addEventListener('ryMsg.send', options => {
+      let { targetId, content, sentTime } = options
+      // this.selectList()
+      //do soming
+      //监听发送消息
+    })
+```
+
+具体例子详见
+
+- [https://github.com/ChenArno/ryim-eros-source.git] (https://github.com/ChenArno/ryim-eros-source.git)
