@@ -25,6 +25,43 @@ dependencies {
         compile project(':ryim')
     }
 ```
+- 打开Android目录工程目录`/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml`,编辑`AndroidManifest.xml`,插入以下配置
+
+```Java
+ <!--融云配置开始-->
+        <!--android:authorities：您的应用applicationId-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${APP_ID}.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rc_file_path" />
+        </provider>
+
+
+        <!--融云会话界面-->
+        <activity
+            android:name="com.vanz.ryim.ConversationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <!--android:host要改成应用当前APPLICATION_ID-->
+                <data
+                    android:host="${APP_ID}"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+        <!--融云配置结束-->
+```
 引用插件，构造完毕以后，
 在gradle.properties中增加该配置
 融云appid从官方获取
