@@ -1,24 +1,11 @@
 # eros-android-ryim
 安卓融云通信
 
-Step 1. Add the JitPack repository to your build file 
-Add it in your root build.gradle at the end of repositories:
-
-```Java
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-```
-
-Step 2. Add the dependency
-
+- 进入Android目录工程目录/platforms/android/WeexFrameworkWrapper/ 目录下 clone 对应的插件。
 ```Java
 git clone https://github.com/ChenArno/eros-android-ryim.git "vanzRyim"
 ```
--打开Android目录工程目录/platforms/android/WeexFrameworkWrapper/,编辑settings.gradle,添加引入。 在settings.gradle 中 添加如下代码。
+- 打开Android目录工程目录/platforms/android/WeexFrameworkWrapper/,编辑settings.gradle,添加引入。 在settings.gradle 中 添加如下代码。
 
 ```Java
 //这里只需要在最后添加 , ':ryim',':IMKit',':IMLib' 
@@ -28,6 +15,15 @@ include ':app',':sdk',':nexus', ':wxframework', ':ryim',':IMKit',':IMLib'
 project(':ryim').projectDir = new File(settingsDir,'/vanzRyim/ryim')
 project(':IMKit').projectDir = new File(settingsDir,'/vanzRyim/IMKit')
 project(':IMLib').projectDir = new File(settingsDir,'/vanzRyim/IMLib')
+```
+- 打开Android目录工程目录/platforms/android/WeexFrameworkWrapper/app,编辑app目录下build.gradle 文件 dependencies 下添对应 插件引用。
+
+```Java
+dependencies {
+        ....
+        //融云通信
+        compile project(':ryim')
+    }
 ```
 引用插件，构造完毕以后，
 在gradle.properties中增加该配置
