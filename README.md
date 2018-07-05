@@ -16,9 +16,18 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 ```Java
-dependencies {
-	  compile 'com.github.ChenArno:eros-android-ryim:1.0.1'
-	}
+git clone https://github.com/ChenArno/eros-android-ryim.git "vanzRyim"
+```
+-打开Android目录工程目录/platforms/android/WeexFrameworkWrapper/,编辑settings.gradle,添加引入。 在settings.gradle 中 添加如下代码。
+
+```Java
+//这里只需要在最后添加 , ':ryim',':IMKit',':IMLib' 
+include ':app',':sdk',':nexus', ':wxframework', ':ryim',':IMKit',':IMLib'  
+...
+// 融云通信
+project(':ryim').projectDir = new File(settingsDir,'/vanzRyim/ryim')
+project(':IMKit').projectDir = new File(settingsDir,'/vanzRyim/IMKit')
+project(':IMLib').projectDir = new File(settingsDir,'/vanzRyim/IMLib')
 ```
 引用插件，构造完毕以后，
 在gradle.properties中增加该配置
