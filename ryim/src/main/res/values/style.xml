@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RyAppTheme" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <!--colorPrimary—导航栏颜色-->
+        <!--colorPrimaryDark—通知栏颜色-->
+        <!--colorAccent—控件选中后颜色-->
+        <item name="colorPrimary">#ffffff</item>
+        <item name="colorPrimaryDark">#ffffff</item>
+        <item name="colorAccent">#FF4081</item>
+    </style>
+
+</resources>

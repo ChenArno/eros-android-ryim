@@ -63,7 +63,7 @@ public class VanzImView extends WXVContainer<WXFrameLayout> implements RongIMCli
 
     @JSMethod
     public void enterRoom(Conversation.ConversationType conversationType,String targetId, String title) {
-        Log.i(TAG, "enterRoom: " + targetId);
+        Log.i(TAG, "enterRoom: " + targetId+"///"+conversationType);
         RongIM.getInstance().startConversation(mcontext, conversationType, targetId, title);
     }
 
@@ -92,6 +92,7 @@ public class VanzImView extends WXVContainer<WXFrameLayout> implements RongIMCli
                         data.put("lastTime", String.valueOf(con.getSentTime()));
                         data.put("typeName", con.getObjectName());
                         data.put("portraitUri", con.getPortraitUrl());
+                        data.put("unreadCount",String.valueOf(con.getUnreadMessageCount()));
                         newArray.add(data);
                     }
 

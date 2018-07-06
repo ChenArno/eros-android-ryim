@@ -32,6 +32,8 @@ public class VanzIm extends WXModule{
              */
             @Override
             public void onSuccess(String userid) {
+                RongIM.getInstance().enableNewComingMessageIcon(true);//显示新消息提醒
+                RongIM.getInstance().enableUnreadMessageIcon(true);//显示未读消息数目
                 succ.invoke(userid);
             }
             /**
