@@ -1,6 +1,7 @@
 package com.vanz.ryim;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,7 @@ import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.Message;
 import io.rong.imlib.model.MessageContent;
+import io.rong.imlib.model.UserInfo;
 import io.rong.message.RecallNotificationMessage;
 import io.rong.message.TextMessage;
 
@@ -137,4 +139,27 @@ public class VanzImView extends WXVContainer<WXFrameLayout> implements RongIMCli
         minstance.fireGlobalEventCallback("ryMsg.received", params);
         return false;
     }
+
+    @JSMethod
+    public void refreshLoginInfo(String userId,String name, String imgUrl){
+        /**
+         * 刷新用户缓存数据。
+         *
+         * @param userInfo 需要更新的用户缓存数据。
+         */
+        UserInfo userInfo = new UserInfo(userId,name, Uri.parse(imgUrl));
+        RongIM.getInstance().refreshUserInfoCache(userInfo);
+    }
+
+    @JSMethod
+    public void refreshUserInfo(String userId,String name, String imgUrl){
+        /**
+         * 刷新用户缓存数据。
+         *
+         * @param userInfo 需要更新的用户缓存数据。
+         */
+        UserInfo userInfo = new UserInfo(userId,name, Uri.parse(imgUrl));
+        RongIM.getInstance().refreshUserInfoCache(userInfo);
+    }
+
 }
